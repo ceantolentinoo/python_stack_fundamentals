@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link
+         rel="stylesheet"
+         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+         crossorigin="anonymous"
+      />
+      <title>Checkout page</title>
+   </head>
+   <body>
+      <div class="container">
+         <div class="container">
+            <h1 class="mb-3">Thank you for your order!</h1>
+            <p>
+               We ordered {{total}} items for you and charged your student
+               account on x.
+            </p>
+         </div>
+         <div class="container">
+            <h3>You've ordered</h3>
+            <table class="table table-striped table-dark table-bordered mb-3">
+               <thead>
+                  <tr>
+                     <th scope="col">Fruite Name</th>
+                     <th scope="col">Quantity</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <th scope="row">Strawberry</th>
+                     <td>{{strawberry}}</td>
+                  </tr>
+                  <tr>
+                     <th scope="row">Raspberry</th>
+                     <td>{{raspberry}}</td>
+                  </tr>
+                  <tr>
+                     <th scope="row">Apple</th>
+                     <td>{{apple}}</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <div class="container">
+            <h3>Your Information</h3>
+            <p>Name: {{name}}</p>
+            <p>Your Student ID: {{id}}x</p>
+         </div>
+      </div>
+   </body>
+</html>
