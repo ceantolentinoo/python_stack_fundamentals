@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 app = Flask(__name__)
+app.secret_key = 'admin'
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -7,13 +8,14 @@ def index():
 @app.route('/checkout', methods=['POST'])
 def checkout():
     print(request.form)
-    
+    session['data'] = request.form
     return redirect("/show")
 
 @app.route("/show")
 def show_checkout():
-    print(request.form)
-    total_order = int(request.form['strawberry']) + int(request.form['raspberry']) + int(request.form['apple'])
-    return render_template("checkout.html", total=total_order, strawberry=request.form['strawberry'], raspberry=request.form['raspberry'], apple=request.form['apple'], name=request.form['name'], id=request.form['id'])
+    print(session['data'])
+    total_order = int(session['data']['strawberry']) + int(session['data']['raspberry']) + int(session['data']['apple'])
+    return render_template("checkout.html", total=total_order, strawberry=session['data']['strawberry'], raspberry=session['data']['raspberry'], apple=session['data']['apple'], name=session['data']['name'], id=session['data']['id'])
+    
 if __name__ == "__main__":
     app.run(debug=True)
